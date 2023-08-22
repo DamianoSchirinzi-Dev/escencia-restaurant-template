@@ -4,8 +4,8 @@ import Bar from "../public/images/Bar.png"
 const HomePageReservationBlock = () => {
   return (
     <div className="w-full">
-      <Image className="object-cover" src={Bar} alt="Escencia's bar lit up!" />
-      <h1 className="py-20 text-6xl font-light text-center font-PlayfairDisplay">
+      <Image className="object-cover w-full" src={Bar} alt="Escencia's bar lit up!" />
+      <h1 className="px-10 py-20 text-6xl font-light text-center md:py-40 font-PlayfairDisplay">
         Make a <strong className="underline">Reservation</strong>
       </h1>
     </div>

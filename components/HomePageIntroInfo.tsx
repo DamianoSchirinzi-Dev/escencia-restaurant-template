@@ -9,6 +9,7 @@ const HomePageIntroInfo = () => {
         imageSource={BarStaff}
         headingText="Welcome to Esencia"
         bodyText="Where culinary passion and elegance blend in every dish. Immerse yourself in a unique gastronomic experience, where authentic flavors and creativity come together in harmony. Our team of expert chefs has meticulously designed each dish to delight your senses and take you on an unforgettable culinary journey. Enjoy an evening full of charm and flavor at Canva. Bon appétit!"
+        alignImageLeft={false}
       />
       <InfoBlock
         imageSource={Seduction}
@@ -17,13 +18,8 @@ const HomePageIntroInfo = () => {
               celebrates the heart and soul of Spain's culinary heritage. Our
               meticulously crafted menu, curated by expert chefs from diverse
               regions of Spain, presents a vibrant tapestry of flavors and
-              techniques passed down through generations. From the aromatic
-              paella that conjures the sun-soaked shores of Valencia to the
-              tender Iberian pork reminiscent of rustic countryside farms, each
-              dish encapsulates the genuine essence of Spanish cuisine. With an
-              inviting ambience reminiscent of Spanish plazas and a thoughtful
-              selection of wines, we invite you to share in our passion for
-              authentic Spanish flavors that promise to create lasting memories."
+              techniques passed down through generations."
+        alignImageLeft={true}
       />
     </div>
   );
