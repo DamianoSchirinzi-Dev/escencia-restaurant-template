@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         custom_light_bg: "#F6F6F6",
-        custom_dark_bg: "#252525",
+        custom_dark_bg: "#171717",
       },
       fontFamily: {
         PlayfairDisplay: ['PlayfairDisplay']

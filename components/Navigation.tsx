@@ -1,72 +1,97 @@
 import { useState } from "react";
+import Image from "next/image";
+import HamburgerImage from "../public/images/HamburgerMenuImage.png";
+
+import { motion, useScroll } from "framer-motion";
 
 export default function Navigation() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { scrollY } = useScroll();
+
+  const genericHamburgerLine = `h-0.5 w-8 xl:w-4 my-1 rounded-full bg-white transition ease transform duration-300`;
+
+  const variants = {
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    hide: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
 
   return (
-    <div className="sticky top-0 z-40 flex flex-row items-center justify-between px-10 pt-8 pb-6 text-lg md:pr-20 md:pl-16 bg-custom_dark">   
-      <nav>
-        <section className="flex MOBILE-MENU">
+    <div>
+      <div
+        className={`${
+          isNavOpen ? "fixed z-50 top-4 right-6" : "absolute z-50 top-4 right-6"
+        }`}
+      >
+        <button
+          className="flex flex-col items-center justify-center w-12 h-12"
+          onClick={() => setIsNavOpen(!isNavOpen)}
+        >
           <div
-            className="space-y-2 HAMBURGER-ICON"
-            onClick={() => setIsNavOpen((prev) => !prev)}
-          >
-            <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
-          </div>
+            className={`${genericHamburgerLine} ${
+              isNavOpen
+                ? "rotate-45 translate-y-2 opacity-50 group-hover:opacity-100"
+                : "opacity-50 group-hover:opacity-100"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isNavOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isNavOpen
+                ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100"
+                : "opacity-50 group-hover:opacity-100"
+            }`}
+          />
+        </button>
+      </div>
 
-          <div className={`${isNavOpen ? "showMenuNav" : "hideMenuNav"}`}>
-            <div
-              className="absolute top-0 right-0 pt-9 px-9"
-              onClick={() => setIsNavOpen(false)}
+      {isNavOpen && (
+        <motion.div
+          variants={variants}
+          animate={"show"}
+          initial="hide"
+          className="fixed top-0 left-0 z-40 flex w-full h-screen overflow-hidden bg-custom_dark_bg"
+        >
+          <Image className="hidden object-cover w-1/2 sm:block" src={HamburgerImage} alt="image of chef serving food" />
+
+          <motion.ul className="flex flex-col items-center justify-center w-full h-full gap-12 text-3xl text-center text-white sm:w-1/2 font-PlayfairDisplay">
+            <motion.li
+              initial={{ opacity: 0, y: -200 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <svg
-                className="w-10 h-10 text-gray-200"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
-            <ul className="flex flex-col items-center justify-between min-h-[250px] text-gray-200">
-              <li className="my-8 uppercase border-b border-gray-400">
-                <button >Menu</button>
-              </li>
-              <li className="my-8 uppercase border-b border-gray-400">
-              <button >Reservations</button>
-              </li>
-              <li className="my-8 uppercase border-b border-gray-400">
-              <button >Our History</button>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </nav>
-      <style jsx>{`
-        .hideMenuNav {
-          display: none;
-        }
-        .showMenuNav {
-          display: block;
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          background: black;
-          z-index: 20;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-      `}</style>
+              Menu
+            </motion.li>
+            <motion.li
+              initial={{ opacity: 0, y: -200 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              Reservations
+            </motion.li>
+            <motion.li
+              initial={{ opacity: 0, y: -200 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              Our History
+            </motion.li>
+          </motion.ul>
+        </motion.div>
+      )}
     </div>
   );
 }
