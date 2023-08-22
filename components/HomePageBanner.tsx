@@ -12,6 +12,7 @@ const HomePageBanner = () => {
         loop={true}
         muted={true}
         width="1920"
+        playsInline={true}
     >
         <source src="videos/EscenciaLandingPageVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
