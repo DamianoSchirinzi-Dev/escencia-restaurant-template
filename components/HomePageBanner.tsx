@@ -1,6 +1,3 @@
-import Image from "next/image";
-import VideoThumbnail1 from "../public/images/VideoThumbnail1.png";
-import Video from "../public/images/Facebook.png";
 
 const HomePageBanner = () => {
   return (
@@ -15,9 +12,8 @@ const HomePageBanner = () => {
         playsInline={true}
     >
         <source src="videos/EscenciaLandingPageVideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
-      <h1 className="absolute pb-24 text-gray-100 -translate-x-1/2 -translate-y-1/2 text-7xl top-1/2 left-1/2 font-PlayfairDisplay">
+      <h1 className="absolute pb-24 text-gray-100 -translate-x-1/2 -translate-y-40 text-7xl top-1/2 left-1/2 font-PlayfairDisplay">
         Escencia
       </h1>
     </div>
