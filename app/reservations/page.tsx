@@ -18,7 +18,7 @@ export default function Reservation() {
         </h1>
       </div>
 
-      <div className="flex flex-col items-center h-full pt-12 mx-6 pb-14 lg:flex-row lg:gap-20 lg:justify-center">
+      <div className="flex flex-col items-center h-full pt-12 mx-6 pb-14 lg:flex-row lg:gap-16 lg:justify-center">
         <Image className="" src={Exterior} alt="Bar staff serving drinks" />
         <div className="flex flex-col gap-8 pt-8 mx-6 font-light text-center lg:text-left">
           <div>

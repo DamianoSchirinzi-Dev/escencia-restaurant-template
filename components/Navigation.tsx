@@ -1,12 +1,17 @@
 import { useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import HamburgerImage from "../public/images/HamburgerMenuImage.png";
 
 export default function Navigation() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const router = useRouter();
+
+  const handledRedirect = (href: string) => {
+    router.push(href);
+    setIsNavOpen(!isNavOpen);
+  };
 
   const showPdf = () => {
     window.open("menus/dummy.pdf");
@@ -34,8 +39,8 @@ export default function Navigation() {
       <div
         className={`${
           isNavOpen
-            ? "fixed z-50 top-3 right-6"
-            : "fixed z-50 top-3 right-6 bg-black bg-opacity-60 rounded-md"
+            ? "fixed z-40 top-3 right-6"
+            : "fixed z-40 top-3 right-6 bg-black bg-opacity-60 rounded-md"
         }`}
       >
         <button
@@ -69,7 +74,7 @@ export default function Navigation() {
           variants={variants}
           animate={"show"}
           initial="hide"
-          className="fixed top-0 left-0 z-40 flex w-full h-screen overflow-hidden bg-custom_dark_bg"
+          className="fixed top-0 left-0 z-30 flex w-full h-screen overflow-hidden bg-custom_dark_bg"
         >
           <Image
             className="hidden object-cover w-1/2 sm:block"
@@ -78,38 +83,36 @@ export default function Navigation() {
           />
 
           <motion.ul className="flex flex-col items-center justify-center w-full h-full gap-12 text-3xl text-center text-white sm:w-1/2 font-PlayfairDisplay">
-            <motion.a
-              href="/"
+            <motion.li
+              onClick={() => handledRedirect("/")}
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.5 }}
             >
               Home
-            </motion.a>
+            </motion.li>
             <motion.button
               onClick={showPdf}
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               Menu
             </motion.button>
-            <motion.a
-              href="/reservations"
+            <motion.button
+              onClick={() => handledRedirect("/reservations")}
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.3 }}
             >
               Reservations
-            </motion.a>
-            <motion.a
-              href="/about"
+            </motion.button>
+            <motion.button
+              onClick={() => handledRedirect("/about")}
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
-            >
-              Our History
-            </motion.a>
+            >About us</motion.button>
           </motion.ul>
         </motion.div>
       )}
