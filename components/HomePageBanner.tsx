@@ -1,3 +1,5 @@
+"use client"
+import {motion} from "framer-motion"
 
 const HomePageBanner = () => {
   return (
@@ -13,9 +15,9 @@ const HomePageBanner = () => {
     >
         <source src="videos/EscenciaLandingPageVideo.mp4" type="video/mp4" />
       </video>
-      <h1 className="absolute pb-24 text-gray-100 -translate-x-1/2 -translate-y-1/2 text-7xl top-1/2 left-1/2 font-PlayfairDisplay">
+      <motion.h1 initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2}} className="absolute pb-24 text-gray-100 -translate-x-1/2 -translate-y-1/2 text-7xl top-1/2 left-1/2 font-PlayfairDisplay">
         Escencia
-      </h1>
+      </motion.h1>
     </div>
   );
 };

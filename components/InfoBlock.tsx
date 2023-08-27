@@ -1,4 +1,6 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 interface InfoBlockData {
   imageSource: StaticImageData;
@@ -9,12 +11,15 @@ interface InfoBlockData {
 
 const InfoBlock = (props: InfoBlockData) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-10 md:items-start md:flex-row">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="flex flex-col items-center justify-center gap-10 md:items-start md:flex-row"
+    >
       <Image
         className={`${
-          props.alignImageLeft
-            ? "object-cover md:order-1"
-            : "object-cover"
+          props.alignImageLeft ? "object-cover md:order-1" : "object-cover"
         } rounded-sm`}
         src={props.imageSource}
         alt="Bar staff serving drinks"
@@ -26,7 +31,7 @@ const InfoBlock = (props: InfoBlockData) => {
         </h2>
         <p className="text-sm font-light">{props.bodyText}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

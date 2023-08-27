@@ -1,7 +1,8 @@
+"use client";
 import Image from "next/image";
 import TapasSpread from "@/public/images/TapasSpread.png";
 import Exterior from "@/public/images/Exterior.png";
-import { Extension } from "typescript";
+import { motion } from "framer-motion";
 
 export default function Reservation() {
   return (
@@ -13,12 +14,22 @@ export default function Reservation() {
           alt="Escencia's bar lit up!"
         ></Image>
 
-        <h1 className="absolute pb-24 text-6xl text-gray-100 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 font-PlayfairDisplay lg:text-7xl">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="absolute pb-24 text-6xl text-gray-100 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 font-PlayfairDisplay lg:text-7xl"
+        >
           Reservations
-        </h1>
+        </motion.h1>
       </div>
 
-      <div className="flex flex-col items-center h-full pt-12 mx-6 pb-14 lg:flex-row lg:gap-16 lg:justify-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="flex flex-col items-center h-full pt-12 mx-6 pb-14 lg:flex-row lg:gap-16 lg:justify-center"
+      >
         <Image className="" src={Exterior} alt="Bar staff serving drinks" />
         <div className="flex flex-col gap-8 pt-8 mx-6 font-light text-center lg:text-left">
           <div>
@@ -45,7 +56,7 @@ export default function Reservation() {
             <p>restaurant@escencia.co.uk</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -108,7 +108,7 @@ export default function Navigation() {
               Reservations
             </motion.button>
             <motion.button
-              onClick={() => handledRedirect("/about")}
+              onClick={() => handledRedirect("/our-story")}
               initial={{ opacity: 0, y: -200 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
