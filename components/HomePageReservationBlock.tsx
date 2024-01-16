@@ -12,7 +12,7 @@ const HomePageReservationBlock = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full">
       <Image
         className="object-cover w-full"
         src={Bar}
